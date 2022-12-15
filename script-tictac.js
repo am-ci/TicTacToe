@@ -8,9 +8,16 @@ for (let cell of cells) {
         console.log(cell.dataset.game) //verif
         if (state[cell.dataset.game -1] == "") {
             state[cell.dataset.game -1] = current
-            console.log(state);
+            cell.textContent = current
+            console.log(state); //Verif
         } else {
             alert ("ERREUR")
+        }
+        
+        if (current == 'X') {
+            current = 'O';
+        } else {
+            current = 'X';
         }
     });
 
