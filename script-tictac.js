@@ -2,11 +2,12 @@ let cells = document.querySelectorAll('.cell');
 let state = ["","","","","","","","",""];
 let current = 'X';
 let win = false;
-
+let player = document.getElementById('player')
 
 for (let cell of cells) {
     cell.addEventListener('click', function(){
         console.log(cell.dataset.game) //verif
+        player = `c'est au joueur ${current} de jouer`
         if (state[cell.dataset.game -1] == "" && win == false) {
             state[cell.dataset.game -1] = current
             cell.textContent = current
@@ -16,10 +17,8 @@ for (let cell of cells) {
         }
         
         check();
-        // stop();
 
         figure();
-        
       
     });
     
@@ -45,45 +44,69 @@ function figure() {
 function check() {
     if (state[0] == current && state[1]== current && state[2] == current) {
         win = true;
-        console.log(`joueur ${current} a gagné`);
-           
+        console.log(`joueur ${current} a gagné`); 
+        cells[0].style.backgroundColor = 'lightblue';
+        cells[1].style.backgroundColor = 'lightblue';
+        cells[2].style.backgroundColor = 'lightblue';
+
     } else {
         console.log('suivant'); //pour verif
     }
 
     if (state[3] == current && state[4]== current && state[5] == current) {
+        win = true;
         console.log(`joueur ${current} a gagné`);
-       
+        cells[3].style.backgroundColor = 'lightblue';
+        cells[4].style.backgroundColor = 'lightblue';
+        cells[5].style.backgroundColor = 'lightblue';   
     } 
 
     if (state[6] == current && state[7]== current && state[8] == current) {
+        win = true;
         console.log(`joueur ${current} a gagné`);
-        
+        cells[6].style.backgroundColor = 'lightblue';
+        cells[7].style.backgroundColor = 'lightblue';
+        cells[8].style.backgroundColor = 'lightblue';    
     } 
 
     if (state[0] == current && state[4]== current && state[6] == current) {
+        win = true;
         console.log(`joueur ${current} a gagné`);
-        
+        cells[0].style.backgroundColor = 'lightblue';
+        cells[4].style.backgroundColor = 'lightblue';
+        cells[6].style.backgroundColor = 'lightblue';   
     } 
 
     if (state[1] == current && state[4]== current && state[7] == current) {
+        win = true;
         console.log(`joueur ${current} a gagné`);
-        
+        cells[1].style.backgroundColor = 'lightblue';
+        cells[4].style.backgroundColor = 'lightblue';
+        cells[7].style.backgroundColor = 'lightblue';   
     } 
 
     if (state[2] == current && state[5]== current && state[8] == current) {
+        win = true;
         console.log(`joueur ${current} a gagné`);
-        
+        cells[2].style.backgroundColor = 'lightblue';
+        cells[5].style.backgroundColor = 'lightblue';
+        cells[8].style.backgroundColor = 'lightblue';    
     } 
 
     if (state[0] == current && state[4]== current && state[8] == current) {
+        win = true;
         console.log(`joueur ${current} a gagné`);
-        
+        cells[0].style.backgroundColor = 'lightblue';
+        cells[4].style.backgroundColor = 'lightblue';
+        cells[8].style.backgroundColor = 'lightblue';    
     } 
 
     if (state[2] == current && state[4]== current && state[6] == current) {
+        win = true;
         console.log(`joueur ${current} a gagné`);
-        
+        cells[2].style.backgroundColor = 'lightblue';
+        cells[4].style.backgroundColor = 'lightblue';
+        cells[6].style.backgroundColor = 'lightblue'; 
     } 
 }
 
