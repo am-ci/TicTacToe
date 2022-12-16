@@ -2,16 +2,29 @@ let cells = document.querySelectorAll('.cell');
 let state = ["","","","","","","","",""];
 let current = 'X';
 let win = false;
-let player = document.getElementById('player')
+let player = document.getElementById('player');
+let fin = document.createElement('p');
+let score1 = document.getElementById('score1');
+let score2 = document.getElementById('score2');
+
+let game = {
+    JoueurJoue : 1,
+    scoreJ1 : 0,
+    scoreJ2: 0,
+    matchNuls: 0,
+}
+
 
 for (let cell of cells) {
     cell.addEventListener('click', function(){
         console.log(cell.dataset.game) //verif
-        player = `c'est au joueur ${current} de jouer`
+        // player.innerHTML = `Joueur qui a les ${current} à toi`;
+        // // Je n'arrive pas à faire en sorte d'avoir X et O au bon moment.... Et je ne vois pas comment faire joueur 1 joueur 2....
         if (state[cell.dataset.game -1] == "" && win == false) {
             state[cell.dataset.game -1] = current
             cell.textContent = current
             console.log(state); //Verif
+
         } else {
             alert ("ERREUR")
         }
@@ -110,9 +123,12 @@ function check() {
     } 
 }
 
-function stop() {
-    if (win == true) {
-        console.log('PARTIE FINIE');//verif ok
+function score() {
+// condition score
 
-    }
+//ATTENTION replace c'est que sur des string
+    score1.innerHTML = score1.innerHTML.replace('', game.scoreJ1++)
+    score2.innerHTML = score2.innerHTML.replace('', game.scoreJ2++)
+
+    
 }

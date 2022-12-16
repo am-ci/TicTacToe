@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     width : 310px;
     margin: auto;
+    position: relative;
 
 }
 
@@ -37,3 +38,23 @@ h1 {
     text-align: center;
     margin: 20px 0;
 }
+
+#game-score {
+    display : flex;
+    flex-direction: column;  
+    align-items: center;
+}
+
+#winner {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 20px;
+    color: #fff;
+    background-color: #000;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: absolute;
+    top : 200px;
+    left : 530px;
+    display: none;
+}
+
